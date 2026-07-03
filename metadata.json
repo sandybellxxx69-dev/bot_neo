@@ -1,0 +1,6 @@
+{
+  "name": "Bot NEO",
+  "description": "Panel de control para bot de WhatsApp (Node.js)",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

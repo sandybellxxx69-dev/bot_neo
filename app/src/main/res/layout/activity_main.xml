@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_base">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/bg_surface"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+        
+        <View
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/circle_green"
+            android:layout_marginEnd="8dp" />
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bot NEO"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v1.0"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:layout_marginStart="4dp" />
+            
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+            
+    </LinearLayout>
+    
+    <View
+        android:id="@+id/headerDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border_color"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/headerDivider"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Status Dashboard Grid -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:background="@color/border_color"
+                android:padding="1dp"
+                android:useDefaultMargins="true"
+                android:layout_margin="0dp">
+                
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:background="@color/bg_base"
+                    android:padding="16dp"
+                    android:layout_margin="1dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NODE.JS ENGINE"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary" />
+                    <TextView
+                        android:id="@+id/tvStatusProcess"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DETENIDO 🔴"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:background="@color/bg_base"
+                    android:padding="16dp"
+                    android:layout_margin="1dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WHATSAPP STATUS"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary" />
+                    <TextView
+                        android:id="@+id/tvStatusWa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DESCONECTADO ❌"
+                        android:textColor="@color/text_primary"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:background="@color/bg_base"
+                    android:padding="16dp"
+                    android:layout_margin="1dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BOT UPTIME"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary" />
+                    <TextView
+                        android:id="@+id/tvStatusUptime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00:00"
+                        android:textColor="@color/text_white"
+                        android:fontFamily="monospace"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:background="@color/bg_base"
+                    android:padding="16dp"
+                    android:layout_margin="1dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SESSION STORE"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary" />
+                    <TextView
+                        android:id="@+id/tvStatusFiles"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 files (0 KB)"
+                        android:textColor="@color/text_white"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </GridLayout>
+
+            <!-- Quick Control Bar -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_surface"
+                android:padding="12dp"
+                android:scrollbars="none">
+                
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="▶ INICIAR"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:paddingHorizontal="16dp"
+                        android:minHeight="48dp"
+                        android:layout_marginEnd="8dp" />
+                        
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnStop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⏹ DETENER"
+                        android:backgroundTint="@color/bg_surface_alt"
+                        android:textColor="@color/log_error"
+                        android:paddingHorizontal="16dp"
+                        android:minHeight="48dp"
+                        android:layout_marginEnd="8dp" />
+                        
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnCleanRestart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔄 REINICIAR"
+                        android:backgroundTint="@color/bg_surface_alt"
+                        android:textColor="@color/text_primary"
+                        android:paddingHorizontal="16dp"
+                        android:minHeight="48dp"
+                        android:layout_marginEnd="8dp" />
+                        
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnCleanGhosts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🧹 LIMPIAR"
+                        android:backgroundTint="@color/bg_surface_alt"
+                        android:textColor="@color/text_primary"
+                        android:paddingHorizontal="16dp"
+                        android:minHeight="48dp" />
+                </LinearLayout>
+            </HorizontalScrollView>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border_color" />
+
+            <!-- Autenticación por código -->
+            <LinearLayout
+                android:id="@+id/panelAuth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/bg_surface"
+                android:padding="16dp"
+                android:visibility="visible">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EMPAREJAMIENTO WHATSAPP"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="8dp"/>
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Teléfono (ej: 5213323332857)"
+                    android:textColorHint="@color/text_secondary"
+                    android:textColor="@color/text_primary"
+                    android:inputType="phone"
+                    android:backgroundTint="@color/primary"
+                    android:fontFamily="monospace"/>
+                <Button
+                    android:id="@+id/btnReqCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📲 SOLICITAR CÓDIGO"
+                    android:backgroundTint="@color/primary"
+                    android:textColor="#121212"
+                    android:layout_marginTop="8dp"/>
+                <LinearLayout
+                    android:id="@+id/panelCodeResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/bg_base"
+                    android:padding="1dp">
+                    <TextView
+                        android:id="@+id/tvCode"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="ABCD - 1234"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/log_pairing"
+                        android:gravity="center"
+                        android:background="#1A1A1A"
+                        android:padding="12dp"
+                        android:fontFamily="monospace"/>
+                    <Button
+                        android:id="@+id/btnCopyCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="📋 COPIAR"
+                        android:backgroundTint="@color/bg_surface_alt"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginStart="1dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border_color" />
+
+            <!-- Real-time Terminal Logs -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/bg_logs"
+                android:layout_weight="1"
+                android:minHeight="250dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#1A1A1A"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:gravity="center_vertical">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TERMINAL OUTPUT"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="10sp"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold" />
+                        
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                        
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:background="@drawable/circle_red"
+                        android:layout_marginEnd="6dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Live Stdout"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="10sp"
+                        android:fontFamily="monospace" />
+                </LinearLayout>
+                
+                <ScrollView
+                    android:id="@+id/svLogs"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:fillViewport="true">
+                    <TextView
+                        android:id="@+id/tvLogs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/log_normal"
+                        android:typeface="monospace"
+                        android:textSize="12sp"
+                        android:lineSpacingExtra="4dp" />
+                </ScrollView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border_color" />
+
+            <!-- Advanced Controls -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/bg_surface"
+                android:padding="16dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADVANCED CONTROLS"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="8dp">
+                    <Button
+                        android:id="@+id/btnUpdateIndex"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="⬇ ACT. INDEX"
+                        android:backgroundTint="@color/bg_surface_alt"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="4dp"/>
+                    <Button
+                        android:id="@+id/btnExportLogs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="📤 EXP. LOGS"
+                        android:backgroundTint="@color/bg_surface_alt"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp"
+                        android:layout_marginStart="4dp"/>
+                </LinearLayout>
+                
+                <!-- URL Field -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/bg_base"
+                    android:padding="1dp">
+                    <EditText
+                        android:id="@+id/etMainUrl"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:background="#1A1A1A"
+                        android:padding="12dp"
+                        android:fontFamily="monospace"/>
+                    <Button
+                        android:id="@+id/btnSaveUrl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="💾 SAVE"
+                        android:backgroundTint="@color/bg_surface_alt"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginStart="1dp"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnKillAll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🔴 MATAR TODO"
+                    android:backgroundTint="#450a0a"
+                    android:textColor="@color/log_error"
+                    android:layout_marginBottom="8dp" />
+                    
+                <Button
+                    android:id="@+id/btnLogoutWa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🗂 CERRAR SESIÓN WA"
+                    android:backgroundTint="#451a03"
+                    android:textColor="#fb923c"
+                    android:layout_marginBottom="8dp" />
+                    
+                <Button
+                    android:id="@+id/btnDeauthReconnect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🔁 DEAUTENTICAR Y RECONECTAR"
+                    android:backgroundTint="@color/bg_surface_alt"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border_color" />
+
+            <!-- Footer Controls -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/bg_surface"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+                
+                <Switch
+                    android:id="@+id/swWatchdog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🐕 Watchdog"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold" />
+                    
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                    
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <TextView
+                        android:id="@+id/tvWatchdogCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Restarts: 0 / 5"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="monospace"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="8dp" />
+                        
+                    <Button
+                        android:id="@+id/btnResetWatchdog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RESET"
+                        android:backgroundTint="@color/bg_surface_alt"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp"
+                        android:minHeight="36dp"
+                        android:minWidth="64dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
